@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  build-game:
+    image : ioribranford/godot-docker:3.1.1
+    volumes:
+      - './code:/build/src'
+      - './build:/build/output'
+    environment:
+      - /bin/bash
+    command: godot --export 'Linux/X11' /build/output/test --path /build/src
